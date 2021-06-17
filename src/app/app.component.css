@@ -1,0 +1,46 @@
+p {
+  font-family: Lato;
+}
+
+.wrapper {
+
+  display: block;
+  background: azure;
+}
+
+section {
+  background: aqua;
+  background: url("http://www.ecohomesnj.com/wp-content/uploads/2019/11/banner.jpg") no-repeat top/cover;
+}
+
+.first-screen {
+  height: 100vh;
+}
+
+.first-screen__card {
+  padding: 20px;
+  margin-top: 35vh;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+
+}
+h1 {
+  margin-left: 20px;
+  font-size: 30px;
+  font-weight: 400;
+}
+.first-screen__card p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.4em;
+}
+.first_screen button {
+
+}
+.energyData__name{
+  padding-top: 30px;
+}
+.energyData__name li{
+  list-style: none;
+  font-size: 18px;
+}
