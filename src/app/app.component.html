@@ -18,8 +18,8 @@
       <app-datepicker [meterData]="meterData"></app-datepicker>
       <div class="wrapper">
         <ul *ngIf="meterData" class="energyData__name">
-          <li>Название счетчика meterName: {{meterData.meterName | uppercase}}</li>
-          <li>Название канала данных channelName{{meterData.channelName | uppercase}} </li>
+          <li>Название счетчика: {{meterData.meterName | uppercase}}</li>
+          <li>Название канала данных: {{meterData.channelName | uppercase}} </li>
         </ul>
         <div>
           <ul>
