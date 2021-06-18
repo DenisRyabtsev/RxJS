@@ -214,7 +214,6 @@ export class AppComponent implements OnInit {
     for (const point of this.updatedValueHourly) {
       sum += point.value;
     }
-    this.avgHourly = sum / this.updatedValueHourly.length;
-    return this.avgHourly.toFixed(0);
+    return this.avgHourly = sum / this.updatedValueHourly.length;
   }
 }
