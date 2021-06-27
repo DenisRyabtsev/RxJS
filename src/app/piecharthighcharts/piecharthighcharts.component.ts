@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import {DataBusService} from '../data-bus.service';
 import {AverageValues} from '../AverageValues';
@@ -9,38 +9,36 @@ import {AverageValues} from '../AverageValues';
   templateUrl: './piecharthighcharts.component.html',
   styleUrls: ['./piecharthighcharts.component.css']
 })
-export class PiecharthighchartsComponent implements OnInit {
+export class PiecharthighchartsComponent implements OnInit, OnChanges {
 
-  public energyAvgWeek: AverageValues[];
-  private energyAvgWeekValue;
+
+  @Input() energyValue: AverageValues[];
+  @Input() title;
   highcharts = Highcharts;
   chartOptions: any;
 
-  constructor(private readonly dataBusService: DataBusService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.dataBusService.avgWeek$.subscribe((data) => {
-      this.energyAvgWeek = data;
-      this.energyAvgWeekValue = this.energyAvgWeek.map(({time, value, day}) => ([time.format('YYYY/MMMM  wo'), +(value / day).toFixed(0)]));
-      this.chartOptions = this.getchartOptions(this.energyAvgWeekValue);
-    });
-
   }
 
-  getchartOptions(energyAvgWeekValue) {
+  ngOnChanges() {
+    this.chartOptions = this.getchartOptions(this.energyValue);
+  }
+
+  getchartOptions(energyValue) {
     return {
       series: [{
         name: 'energy',
-        data: energyAvgWeekValue,
+        data: energyValue,
       },],
       chart: {
         type: 'pie',
         zoomType: 'x'
       },
       title: {
-        text:
-          'average daily electricity by week ',
+        text: this.title,
       },
       credits: {
         enabled: false, // remove logo

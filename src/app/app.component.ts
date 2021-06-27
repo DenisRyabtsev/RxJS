@@ -16,7 +16,10 @@ import {Subject} from 'rxjs';
 })
 
 export class AppComponent implements OnInit {
-
+  energyAvgWeek: AverageValues[];
+  energyAvgWeekValue;
+  energyAvgWeekDays: AverageValues[];
+  energyAvgWeekDayValue;
   public callNumber = 1;
   private updatedAr: MomentValue[];
   private energyData: MomentValue[];
@@ -32,6 +35,7 @@ export class AppComponent implements OnInit {
   calculateAvgHour$ = new Subject();
   getMaximumHour$ = new Subject();
   getMinimumDay$ = new Subject();
+
 
   constructor(private jsonService: JsonService,
               private dataBusService: DataBusService) {
@@ -61,7 +65,21 @@ export class AppComponent implements OnInit {
       console.log(this.daterange);
       this.getSelectedInterval(data);
     });
+    this.dataBusService.avgWeek$.subscribe((data) => {
+      this.energyAvgWeek = data;
+      this.energyAvgWeekValue = this.energyAvgWeek.map(({time, value, day}) => ([time.format('YYYY/MMMM  wo'), +(value / day).toFixed(0)]));
+      console.log(' first ', this.energyAvgWeekValue);
+    });
+    this.dataBusService.avgWeekDays$.subscribe((data) => {
+      this.energyAvgWeekDays = data;
+      this.energyAvgWeekDayValue = this.energyAvgWeekDays.map(({
+                                                                 time,
+                                                                 value,
+                                                                 day
+                                                               }) => ([time.format('YYYY/MMMM dddd'), +(value / day).toFixed(0)]));
+    });
   }
+
 
   getSelectedInterval(daterang: RangeValues) {
     this.daterange.start = daterang.start;

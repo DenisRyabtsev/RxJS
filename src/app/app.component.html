@@ -49,8 +49,12 @@
           </ul>
         </div>
         <app-highcharts></app-highcharts>
-        <app-piecharthighcharts></app-piecharthighcharts>
-        <app-average-consumption-by-day-highcharts></app-average-consumption-by-day-highcharts>
+
+        <app-piecharthighcharts [energyValue]="energyAvgWeekValue"
+                                [title]="'average daily electricity by week'"></app-piecharthighcharts>
+        <app-piecharthighcharts [energyValue]="energyAvgWeekDayValue"
+                                [title]="'average electrical energy by day of the week'"></app-piecharthighcharts>
+
       </div>
     </div>
   </div>
