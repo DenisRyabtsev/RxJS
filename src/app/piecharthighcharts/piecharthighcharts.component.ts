@@ -12,7 +12,7 @@ import {AverageValues} from '../AverageValues';
 export class PiecharthighchartsComponent implements OnInit, OnChanges {
 
 
-  @Input() energyValue: AverageValues[];
+  @Input() energyValue;
   @Input() title;
   highcharts = Highcharts;
   chartOptions: any;
