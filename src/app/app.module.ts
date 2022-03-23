@@ -12,8 +12,7 @@ import {HighchartsComponent} from './highcharts/highcharts.component';
 import {HighchartsChartModule} from 'highcharts-angular';
 import {DataBusService} from './data-bus.service';
 import {PiecharthighchartsComponent} from './piecharthighcharts/piecharthighcharts.component';
-import { AverageConsumptionByDayHighchartsComponent } from './average-consumption-by-day-highcharts/average-consumption-by-day-highcharts.component';
-
+import {AverageConsumptionByDayHighchartsComponent} from './average-consumption-by-day-highcharts/average-consumption-by-day-highcharts.component';
 
 
 @NgModule({
@@ -25,7 +24,7 @@ import { AverageConsumptionByDayHighchartsComponent } from './average-consumptio
     HighchartsChartModule
 
   ],
-  declarations: [AppComponent, HelloComponent, DatepickerComponent, RxjsComponent, HighchartsComponent, PiecharthighchartsComponent, AverageConsumptionByDayHighchartsComponent ],
+  declarations: [AppComponent, HelloComponent, DatepickerComponent, RxjsComponent, HighchartsComponent, PiecharthighchartsComponent, AverageConsumptionByDayHighchartsComponent],
   providers: [
     JsonService, DatepickerComponent, DataBusService
   ],
@@ -33,3 +32,4 @@ import { AverageConsumptionByDayHighchartsComponent } from './average-consumptio
 })
 export class AppModule {
 }
+

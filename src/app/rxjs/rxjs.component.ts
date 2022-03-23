@@ -22,8 +22,6 @@ export class RxjsComponent implements OnInit {
   stop() {
     this.sub.unsubscribe(),
       this.sub2.unsubscribe()
-
-
   }
 
   ngOnInit() {
